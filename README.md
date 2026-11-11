@@ -4,17 +4,17 @@ This notebook accompanies the study of discharge capacity at IC, EC50 and EC100 
 
 | File | Contents |
 | --- | --- |
-| `paper_figures.ipynb` | Holdout prediction check, CV and test metrics, and previews of Figures 2–5, S1 and S2 |
+| `paper_figures.ipynb` | Holdout prediction check, CV and test metrics, and executable plots for Figures 2–5, S1 and S2 |
 | `ncm_dataset.csv` | 213 records, 13 predictors, three targets, dopant identifier and sample index |
 | `ncm_models.joblib` | Twelve fitted GBR, RF, SVR and GPR estimators, original predictions, signed test-set SHAP values and figure previews |
 
 Use Python 3.12 and install the recorded versions used for inference:
 
 ```bash
-python -m pip install notebook numpy==2.4.4 pandas==2.3.3 scipy==1.17.1 scikit-learn==1.8.0 joblib==1.5.3
+python -m pip install notebook numpy==2.4.4 pandas==2.3.3 scipy==1.17.1 scikit-learn==1.8.0 joblib==1.5.3 matplotlib==3.10.8 seaborn==0.13.2 shap==0.51.0
 python -m notebook paper_figures.ipynb
 ```
 
 Keep all four files in one directory and choose **Run All**. Only load the model bundle from this trusted repository. The notebook uses the original 170/43 split and the five recorded validation folds. The model bundle stores the split and fold membership with the archived predictions. In the CSV, `sample_index` links rows to those predictions, and `Dopant_element` identifies the dopant.
 
-The notebook runs inference with the fitted models and displays previews of the archived manuscript figures. Training and figure-generation sources are in the [original research repository](https://github.com/xyongkang215-ops/ncm-stage-capacity-ml). A public redistribution license has yet to be selected.
+The notebook runs inference with the fitted models and draws figures inline from the dataset, archived predictions and signed SHAP values. Figure 5 uses the archived bootstrap percentile endpoints. The figures use layouts adapted for notebook viewing. The committed notebook contains the output of an executed Jupyter session. Training and publication-format figure sources are in the [original research repository](https://github.com/xyongkang215-ops/ncm-stage-capacity-ml). A public redistribution license has yet to be selected.
